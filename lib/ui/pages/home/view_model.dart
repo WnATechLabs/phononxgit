@@ -7,7 +7,7 @@ import 'package:rxdart/rxdart.dart';
 
 class HomePageViewModel {
   static const _tag = 'HomePageViewModel';
-  final UsersRemoteDaoI usersService = UsersDaoMock();
+  final UsersRemoteDaoI usersService = UsersDaoGithub();
 
   TextEditingController controller = TextEditingController(text: '');
   String _cachedQuery = '';
