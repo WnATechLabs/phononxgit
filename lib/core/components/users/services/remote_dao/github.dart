@@ -15,8 +15,6 @@ class UsersDaoGithub implements UsersRemoteDaoI {
         "q": query,
         "per_page": 20,
       });
-      debugPrint('results');
-      debugPrint('$results');
       if (results.data == null) {
         throw TypeError();
       }
@@ -33,7 +31,6 @@ class UsersDaoGithub implements UsersRemoteDaoI {
       return BuiltList.from(listResults);
     } catch (e) {
       // todo: parse errors to a non-external data model
-      debugPrint('$e');
       rethrow;
     }
   }
