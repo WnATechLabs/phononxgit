@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:phononxgit/core/core.dart';
+import 'package:phononxgit/ui/widgets/user_list_tile.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key = const Key('HomePage')});
@@ -11,15 +12,22 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(AppConstants.appName),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            TextField(),
-            Gap(8),
+            const TextField(),
+            const Gap(16),
             Expanded(
-              child: Placeholder(
-                fallbackHeight: 20,
+              child: ListView(
+                shrinkWrap: true,
+                children: const [
+                  UserListTile(
+                    username: 'test username',
+                    avatarUrl: 'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg',
+                    repoCount: 4,
+                  )
+                ],
               ),
             ),
           ],
