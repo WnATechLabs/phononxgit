@@ -1,7 +1,26 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:phononxgit/core/core.dart';
-import 'package:phononxgit/ui/widgets/user_list_tile.dart';
+import 'package:phononxgit/ui/widgets/widgets.dart';
+
+final BuiltList<UserModel> users = BuiltList.from([
+  UserModel((b) => b
+    ..username = 'test username 1'
+    ..avatarUrl =
+        'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'
+    ..repoCount = 4),
+  UserModel((b) => b
+    ..username = 'test username 2'
+    ..avatarUrl =
+        'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'
+    ..repoCount = 4),
+  UserModel((b) => b
+    ..username = 'test username 3'
+    ..avatarUrl =
+        'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'
+    ..repoCount = 4),
+]);
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key = const Key('HomePage')});
@@ -19,17 +38,8 @@ class HomePage extends StatelessWidget {
             const TextField(),
             const Gap(16),
             Expanded(
-              child: ListView(
-                shrinkWrap: true,
-                children: [
-                  UserListTile(
-                    user: UserModel((b) => b
-                      ..username = 'test username'
-                      ..avatarUrl =
-                          'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'
-                      ..repoCount = 4),
-                  ),
-                ],
+              child: UserList(
+                users: users,
               ),
             ),
           ],
