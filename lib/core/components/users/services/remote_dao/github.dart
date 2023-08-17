@@ -1,5 +1,4 @@
 import 'package:built_collection/built_collection.dart';
-import 'package:flutter/material.dart';
 import 'package:phononxgit/core/external/external.dart' as external_libs;
 
 import './interface.dart';
