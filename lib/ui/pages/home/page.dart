@@ -4,26 +4,28 @@ import 'package:gap/gap.dart';
 import 'package:phononxgit/core/core.dart';
 import 'package:phononxgit/ui/widgets/widgets.dart';
 
-final BuiltList<UserModel> users = BuiltList.from([
-  UserModel((b) => b
-    ..username = 'test username 1'
-    ..avatarUrl =
-        'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'
-    ..repoCount = 4),
-  UserModel((b) => b
-    ..username = 'test username 2'
-    ..avatarUrl =
-        'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'
-    ..repoCount = 4),
-  UserModel((b) => b
-    ..username = 'test username 3'
-    ..avatarUrl =
-        'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'
-    ..repoCount = 4),
-]);
-
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key = const Key('HomePage')});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final usersService = UsersDaoMock();
+  BuiltList<UserModel> users = BuiltList.from([]);
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    usersService.getUsers('test query').then((results) {
+      setState(() {
+        users = results;
+        isLoading = false;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,9 +40,11 @@ class HomePage extends StatelessWidget {
             const TextField(),
             const Gap(16),
             Expanded(
-              child: UserList(
-                users: users,
-              ),
+              child: !isLoading
+                  ? UserList(
+                      users: users,
+                    )
+                  : const Center(child: CircularProgressIndicator()),
             ),
           ],
         ),
