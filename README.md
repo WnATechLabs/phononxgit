@@ -1,16 +1,14 @@
-# phononxgit
+## How to run the project
+1. Generate a github token: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+2. go to the file <projectRoot>/lib/core/external/http_client/dio.dart and replace "<your personal github's fina grained token here>" with the github token you generated in the previous step
+  ![image](https://github.com/WnATechLabs/phononxgit/assets/105955914/75532da5-dce5-4295-9448-59b0b36bcefe)
+3. at the root of the project run the command: flutter pub get && flutter pub run build_runner build
+4. this will auto generated the necessary files.
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## TODOS:
+* fetch the repo count for each user
+* implement repository pattern
+* dependency injection
+* add tests
