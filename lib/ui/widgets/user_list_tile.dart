@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:phononxgit/core/core.dart';
 
 class UserListTile extends StatelessWidget {
-  final String username;
-  final String avatarUrl;
-  final int repoCount;
+  final UserModel user;
   final height = 48.0;
 
   const UserListTile({
     super.key,
-    required this.username,
-    required this.avatarUrl,
-    required this.repoCount,
+    required this.user,
   });
 
   @override
@@ -32,7 +29,7 @@ class UserListTile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(100),
               ),
               child: Image.network(
-                avatarUrl,
+                user.avatarUrl,
                 fit: BoxFit.cover,
               ),
             ),
@@ -43,12 +40,12 @@ class UserListTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    username,
+                    user.username,
                     style: t.textTheme.titleMedium,
                   ),
                   const Gap(4),
                   Text(
-                    'repo count: $repoCount',
+                    'repo count: ${user.repoCount}',
                     style: t.textTheme.labelMedium,
                   ),
                 ],

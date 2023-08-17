@@ -21,12 +21,14 @@ class HomePage extends StatelessWidget {
             Expanded(
               child: ListView(
                 shrinkWrap: true,
-                children: const [
+                children: [
                   UserListTile(
-                    username: 'test username',
-                    avatarUrl: 'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg',
-                    repoCount: 4,
-                  )
+                    user: UserModel((b) => b
+                      ..username = 'test username'
+                      ..avatarUrl =
+                          'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'
+                      ..repoCount = 4),
+                  ),
                 ],
               ),
             ),
