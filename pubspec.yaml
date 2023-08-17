@@ -2,7 +2,7 @@ name: phononxgit
 description: A new Flutter project. TODO
 publish_to: 'none'
 
-version: 0.1.0+2
+version: 0.2.0+3
 
 # working flutter version:  3.10.1
 environment:
